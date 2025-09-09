@@ -1,82 +1,61 @@
-import React from 'react'
-import { Card,Button } from 'react-bootstrap'
+import React, { useContext, useState } from 'react'
+import { Card, Button, Container, Row, Col } from 'react-bootstrap'
+import "./MusicApp.css"
+import { MyContext } from '../store/ContextApi'
 const MusicApp = () => {
-    
-
-const productsArr = [
-
-{
-
-title: 'Colors',
-
-price: 100,
-
-imageUrl: 'https://prasadyash2411.github.io/ecom-website/img/Album%201.png',
-
-},
-
-{
-
-title: 'Black and white Colors',
-
-price: 50,
-
-imageUrl: 'https://prasadyash2411.github.io/ecom-website/img/Album%202.png',
-
-},
-
-{
-
-title: 'Yellow and Black Colors',
-
-price: 70,
-
-imageUrl: 'https://prasadyash2411.github.io/ecom-website/img/Album%203.png',
-
-},
-
-{
-
-title: 'Blue Color',
-
-price: 100,
-
-imageUrl: 'https://prasadyash2411.github.io/ecom-website/img/Album%204.png',
-
-}
-
-]
+    let {data,setData} = useContext(MyContext)
+  const productsArr = [
+    {
+      title: 'Colors',
+      price: 100,
+      imageUrl: 'https://prasadyash2411.github.io/ecom-website/img/Album%201.png',
+    },
+    {
+      title: 'Black and white Colors',
+      price: 50,
+      imageUrl: 'https://prasadyash2411.github.io/ecom-website/img/Album%202.png',
+    },
+    {
+      title: 'Yellow and Black Colors',
+      price: 70,
+      imageUrl: 'https://prasadyash2411.github.io/ecom-website/img/Album%203.png',
+    },
+    {
+      title: 'Blue Color',
+      price: 100,
+      imageUrl: 'https://prasadyash2411.github.io/ecom-website/img/Album%204.png',
+    }
+  ]
+    let handleAdd = (product) => {
+        setData((pre)=>[...pre,product])
+        console.log(data.length)
+        console.log(data)
+    console.log("Hello")
+    }
   return (
-      <>
-          {productsArr.map((product) => (
-<Card style={{ width: '18rem' ,margin:"20px"}}>
-              <Card.Img variant='top' src={product.imageUrl} ></Card.Img>
+    <Container className=" card" >
+      <Row className="justify-content-center ">
+        {productsArr.map((product) => (
+          <Col key={product.title} md={6} lg={4} className="d-flex justify-content-center mb-4">
+            <Card style={{ width: '18rem' }}>
+              <Card.Img variant="top" className='img' src={product.imageUrl} />
               <Card.Body>
-              <Card.Title>
-             {product.title}
-              </Card.Title>
-              <Card.Text>
-                          Lorem ipsum dolor sit amet consectetur adipisicing elit. Reiciendis id explicabo sapiente ad in consequatur vero cupiditate minima dolorum adipisci?        </Card.Text>
-                      <Button variant="primary">Go somewhere</Button>
-                      <Button variant='success' style={{marginLeft:"10px"}}>${product.price}</Button>
+                <Card.Title>{product.title}</Card.Title>
+                <Card.Text>
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Reiciendis id explicabo sapiente ad in consequatur vero cupiditate minima dolorum adipisci?
+                </Card.Text>
+                <Button variant="success" style={{ marginLeft: "10px" }}>
+                  ${product.price}
+                </Button>
+                <Button variant="primary" onClick={()=>handleAdd(product)} style={{marginLeft:"10px"}}>Add to Cart</Button>
               </Card.Body>
-          </Card>
-))}
-      
-      </>
+            </Card>
+          </Col>
+        ))}
+      </Row>
+    </Container>
   )
 }
 
 export default MusicApp
 
-//  <Card style={{ width: '18rem' }}>
-//       <Card.Img variant="top" src="holder.js/100px180" />
-//       <Card.Body>
-//         <Card.Title>Card Title</Card.Title>
-//         <Card.Text>
-//           Some quick example text to build on the card title and make up the
-//           bulk of the card's content.
-//         </Card.Text>
-//         <Button variant="primary">Go somewhere</Button>
-//       </Card.Body>
-//     </Card>

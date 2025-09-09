@@ -4,8 +4,12 @@ import './index.css'
 import App from './App.jsx'
 // import 'bootstrap/dist/css/bootstrap.min.css' 
 import "bootstrap/dist/css/bootstrap.min.css"
+import { ContextProvider } from './store/ContextApi.jsx'
 createRoot(document.getElementById('root')).render(
   <StrictMode>
+    <ContextProvider>
+    
     <App />
+    </ContextProvider>
   </StrictMode>,
 )
