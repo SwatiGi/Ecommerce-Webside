@@ -1,0 +1,13 @@
+.nav-links {
+    font-family: "popins";
+    font-weight: 500;
+    color: white;
+    flex: 1;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.nav-container {
+    text-transform: capitalize;
+}

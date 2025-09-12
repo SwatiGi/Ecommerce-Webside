@@ -30,8 +30,12 @@
     /* overflow: auto; */
 }
 
-
-
-.btn:hover {
-    background: blue;
+.cross-btn {
+    padding: 5px;
+    padding-left: 20px;
+    padding-right: 20px;
+    width: 100%;
+    border: none;
+    background: #04978d;
+    border-radius: 5px;
 }

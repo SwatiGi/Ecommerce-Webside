@@ -1,4 +1,5 @@
 import React, { useContext, useState } from 'react'
+
 import { Card, Button, Container, Row, Col } from 'react-bootstrap'
 import "./MusicApp.css"
 import { MyContext } from '../store/ContextApi'
@@ -45,27 +46,25 @@ const MusicApp = () => {
         console.log(data)
     }
   return (
-    <Container className="card" >
+    // <Container className="card" >
       <Row className="justify-content-center">
         {productsArr.map((product) => (
           <Col key={product.title} md={8} lg={4} className="d-flex justify-content-center mb-4">
-            <Card style={{ width: '18rem' }}>
+            <Card style={{ width: '18rem',borderRadius:'1px' }}>
               <Card.Img variant="top" className='img' src={product.imageUrl} />
               <Card.Body>
-                <Card.Title>{product.title}</Card.Title>
-                <Card.Text>
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Reiciendis id explicabo sapiente ad in consequatur vero cupiditate minima dolorum adipisci?
-                </Card.Text>
-                <Button variant="success" style={{ marginLeft: "10px" }}>
+                <Card.Title style={{marginTop:"20px"}}>{product.title}</Card.Title>
+                
+               <div style={{display:"flex",justifyContent:"space-between"}}> <Button variant="success" style={{ }}>
                   ${product.price}
                 </Button>
-                <Button variant="primary" onClick={()=>handleAdd(product)} style={{marginLeft:"10px"}}>Add to Cart</Button>
+                <Button variant="primary" onClick={()=>handleAdd(product)} style={{marginLeft:"10px"}}>Add to Cart</Button></div>
               </Card.Body>
             </Card>
           </Col>
         ))}
       </Row>
-    </Container>
+    // </Container>
   )
 }
 

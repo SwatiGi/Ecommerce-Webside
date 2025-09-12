@@ -20,14 +20,14 @@ const CardData = () => {
       <div className='data-container'> 
         
         {data.length > 0 ? data.map((el, i) => {
-          return <div key={el.title} style={{background:"white",padding:"20px",border:"1px solid",boxShadow:"0px 0px 10px ",borderRadius:"10px"}}>
+          return <div key={el.title} style={{background:"white",padding:"20px",border:"1px solid",margin:"20px",boxShadow:"0px 0px 10px ",borderRadius:"10px"}}>
                       <p><b>Price : </b>${el.price}</p>
                       <p><b>Title</b>{el.title}</p>
                   
                   </div>
         }):<h1>Item is not present</h1>}
-        <h1>Total:{total}</h1>
-               <button onClick={handleCart} style={{padding:"5px",marginLeft:"40%" ,paddingLeft:"20px",paddingRight:"20px"}}>X</button>
+        <h1><img src="https://img.icons8.com/?size=100&id=67439&format=png&color=000000" alt="" /> Total:{total}</h1>
+               <button onClick={handleCart} className='cross-btn'>X</button>
            </div>
           
           
